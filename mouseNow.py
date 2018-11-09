@@ -1,6 +1,8 @@
 #! python3
 # mouseNow.py - Displays the mouse cursor's current position.
 import pyautogui
+pyautogui.PAUSE = 1
+pyautogui.FAILSAFE = True
 print('Launching mouse tracker...')
 print('Press Ctrl-C to quit.')
 
