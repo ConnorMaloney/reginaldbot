@@ -1,6 +1,18 @@
 # Import modules
 import pyautogui, time, sys
 
+# Important coordinates
+#
+# BANK INV - Can differ by 10 pixels
+# ~(230, 100) - Position of bank tab 1 (where gold and necklaces are)
+# ~(200, 140) - Position of gold bars in bank inv
+# ~(240, 140) - Position of gold necklaces in bank inv
+# 
+# MAP COORDS - Can differ by 3 pixels
+# ~(890, 50) - Position of Al Kharid smelter (from first Northward bank teller)
+# ~(850, 185) -  Position of Al Kharid bank (from smelter)
+# 
+
 # Handle emergency termination
 pyautogui.PAUSE = 0.1
 pyautogui.FAILSAFE = True
