@@ -66,7 +66,7 @@ try:
         pyautogui.click(195, 535) # click Make all gold necklaces
 
         # Phase 4: Smelt gold bars into gold amulets
-        for i in range(30,0,-1):
+        for i in range(53,0,-1):
             numStr = "Phase 4: Smelting gold amulets... " + str(i).rjust(4)
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
@@ -82,7 +82,7 @@ try:
         pyautogui.click(300, 450) # clicks smelter furnace
         pyautogui.rightClick(220, 450) # right click gold amulet
         pyautogui.click(195, 535) # click Make all gold necklaces
-        for i in range(30,0,-1):
+        for i in range(53,0,-1):
             numStr = "Phase 4.3: Contiuing smelting process... " + str(i).rjust(4)
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
