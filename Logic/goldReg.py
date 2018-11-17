@@ -1,10 +1,12 @@
 # Import modules
 import pyautogui, time, sys
 
+#Blackjack bot? jemar10xford
+
 # Important coordinates
-#
+#Universe-Wallpaper-1920x1080-PIC-WPXH28693
 # BANK - Can differ by 5 pixels
-# ~(260, 490) - Position of banker
+# ~(260, 490) - PositiUniverse-Wallpaper-1920x1080-PIC-WPXH28693on of banker
 # ~(230, 100) - Position of bank tab 1 (where gold and necklaces are)
 # ~(200, 140) - Position of gold bars in bank inv
 # ~(245, 145) - Position of gold necklaces in bank inv
@@ -20,7 +22,11 @@ import pyautogui, time, sys
 # 
 # BUTTON COORDS - Can differ by 10 pixels
 # ~(645, 1015) - Position of inventory button
-# ~(835, 750) - Position of 2nd item in inventory
+# ~(835, 750) - Position of 2nd item in inventoryUniverse-Wallpaper-1920x1080-PIC-WPXH28693
+#
+#
+# GRAND EXCHANGE COORDS
+# ~(400, 400) - Position of grand exchange clerk (on rightside from right corner)
 
 # Important Notes: Takes ~53 seconds to smelt 23 gold necklaces. Crafting levelup can popup at anytime
 # and interrupt this process. Press spacebar 3-5 times to skip over this.
