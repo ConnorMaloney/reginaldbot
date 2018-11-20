@@ -1,3 +1,5 @@
+
+
 # Import modules
 import pyautogui, time, sys
 
@@ -38,15 +40,71 @@ for i in range(5,0,-1):
     print('\b' * len(str(i)), end='', flush=True)
     time.sleep(1)
 
-# Orients camera north
-pyautogui.click(797, 56)
-#pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
-pyautogui.keyDown('up')
-pyautogui.keyUp('up')
+"""
 
+"""
 try:
-    pyautogui.keyDown('right')
-    pyautogui.keyUp('right')
+    while True:
+        # Orients camera north
+        print("Orienting...\n")
+        pyautogui.click(1756, 54)
+        # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
+        pyautogui.keyDown('up')
+        pyautogui.keyUp('up')
+        
+        pyautogui.keyDown('right')
+        pyautogui.keyUp('right')
+        pyautogui.click(866, 104) # Travels to oak to proper place (from bank 2nd booth)
+        
+        for i in range(17,0,-1):
+            numStr = "Walking to oak tree... " + str(i).rjust(4)
+            print(numStr, end='')
+            print('\b' * len(numStr), end='', flush=True)
+            time.sleep(1)
+        print("\n")
+
+        pyautogui.moveTo(989,488) # Hover over chop
+        for i in range(1,10,+1):
+            pyautogui.click(989,488) #Clicking on stump (doesnt move)
+            numStr = "Chopping" + str(i).rjust(4) + " times..."
+            print(numStr, end='')
+            print('\b' * len(numStr), end='', flush=True)
+            time.sleep(5)
+        print("\n")
+
+        pyautogui.keyDown('left') # Reorient to bank
+        pyautogui.keyUp('left') # Reorient to bank
+
+        pyautogui.moveTo(1338,176) # Hover over bank booth button
+        pyautogui.click(1338,176) # Click bank booth
+
+        for i in range(17,0,-1):
+            numStr = "Walking to bank... " + str(i).rjust(4)
+            print(numStr, end='')
+            print('\b' * len(numStr), end='', flush=True)
+            time.sleep(1)
+        print("\n")
+
+        pyautogui.click(1792,755) # First oak log
+        pyautogui.click(1080,70) # Bank menu close button
+        for i in range(3,0,-1):
+            numStr = "Depositing goodies... " + str(i).rjust(4)
+            print(numStr, end='')
+            print('\b' * len(numStr), end='', flush=True)
+            time.sleep(1)
+        print("\n")
+
+
+
+    
+    # Having trouble implementing screencapture
+    # pyautogui.moveTo(989,488) # Hover over oak button
+    # time.sleep(3)
+    # oakButtonLocation = pyautogui.locateOnScreen('ChopOakPic.PNG', region=(990, 505, 200, 200))
+    # print(oakButtonLocation)
+
+    
+    #(1332,181) Clicking on Bank Bank Booth from stump
  #   for i in range(3,0,-1): 
         # Testing
   #      pyautogui.keyDown('right')
