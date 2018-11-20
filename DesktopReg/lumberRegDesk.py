@@ -65,25 +65,8 @@ try:
 
         print("Depositing...")
         pyautogui.click(1792,755) # First oak log
-        time.sleep(0.2)
-        pyautogui.click(1076,69) # Bank menu close button
+        time.sleep(2) # Account for any lag between bank and server
         print("\n")
-
-    
-    # Having trouble implementing screencapture
-    # pyautogui.moveTo(989,488) # Hover over oak button
-    # time.sleep(3)
-    # oakButtonLocation = pyautogui.locateOnScreen('ChopOakPic.PNG', region=(990, 505, 200, 200))
-    # print(oakButtonLocation)
-
-    
-    #(1332,181) Clicking on Bank Bank Booth from stump
- #   for i in range(3,0,-1): 
-        # Testing
-  #      pyautogui.keyDown('right')
-   #     pyautogui.keyUp('right')
-    #    pyautogui.keyDown('left')
-     #   pyautogui.keyUp('left')
 
 except KeyboardInterrupt:
     print('\nAbort.')
