@@ -45,12 +45,12 @@ try:
         print("\n")
         pyautogui.moveTo(956, 635) # Hover over chop
         pyautogui.click(956, 635) # Click chop
-        for i in range(0,36,+1):
+        for i in range(0,27,+1):
             pyautogui.click(956, 602) #Clicking on stump (doesnt move)
             numStr = "Chopping" + str(i).rjust(4) + " times..."
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
-            time.sleep(3)
+            time.sleep(4.2)
         print("\n")
 
         pyautogui.moveTo(1408, 234) # Hover over bank booth button
