@@ -35,7 +35,7 @@ pyautogui.keyDown('up')
 pyautogui.keyUp('up')
 
 try:
-    while i < 3:
+    while True:
         pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time)
         for i in range(13,0,-1):
             numStr = "Walking to oak tree... " + str(i).rjust(4)
@@ -68,9 +68,6 @@ try:
         time.sleep(0.2)
         pyautogui.click(1076,69) # Bank menu close button
         print("\n")
-        i+=1
-
-
 
     
     # Having trouble implementing screencapture
