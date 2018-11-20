@@ -1,5 +1,5 @@
 
-
+# Woodcutting bot at Varrock, near Bank of Gielinor
 # NOTE: Upon every left/right orientation, X-values seem to be changing by a factor of around ~10. This greatly affects the accuracy and produces undesired results.
 #       Does this have to do with pyautogui.pause()? Time.sleep(1.3) and pyautogui.pause(1.3) seem to both have different times?
 #       X-values appearing way off. I'd imagine this is runescape's doing. Or OSBuddy's.
@@ -7,37 +7,16 @@
 #       UPDATE: Nevermind, looks like it has to do because I lose some orientation between the left pan and right pan. However, resetting to north after
 #       each pan should keep me on track.
 
+#       HUGE UPDATE: EVERY TIME I AM RESETTING ORIENTATION, IT CHANGES X-AXIS BY ~10 PIXELS (-10 then +10 pixels, repeat)
+#       UPDATE 3: Nevermind... is it random? I keep testing orientation. I swear it has changed it. (Unless this is pyautogui.pause failing, or its a human error and I stop it abruptly)
+#       No, there is DEFINITELY some variation with all of this. Thus, I'm going to have to always be looking north. I can't change the camera angle.
+
 
 # Import modules
 import pyautogui, time, sys
 
-# Woodcutting bot at Varrock, near Bank of Gielinor
-
-# Important coordinates
-# COMPASS - Can differ by 8 pixels
-# ~(797, 56) - Position of orientation button 
-# 
-# BANK - Can differ by 2 pixels
-# ~(912, 235) - Position of "Bank bank booth" (closest to south door, from facing oak tree)
-# ~(230, 100) - Position of bank tab 1 (where oak logs are)
-# ~(245, 145) - Position of logs in bank inv
-# ~(600, 68) - Position of close button
-#
-# TREE - Can differ by 2 pixels
-# ~(430, 95) - Position of "Chop down oak" from bank booth, after orientation
-# ~(419, 102)
-# 
-# INVENTORY - Can differ by 10 pixels
-# ~(645, 1015) - Position of inventory button
-# ~(915, 970) - Position of last inventory item (should be last oak log)
-#
-# Important Notes: Takes ~53 seconds to smelt 23 gold necklaces. Crafting levelup can popup at anytime
-# and interrupt this process. Press spacebar 3-5 times to skip over this.
-#
-# Other bots? Progpmaker and Hoontar00
-#
-# 1.3 seconds after each command, DO NOT CHANGE, WILL AFFECT CAMERA ORIENTATION
-#pyautogui.PAUSE = 1.3
+# Set 1.3 second delay after every pyautogui call
+pyautogui.PAUSE = 1.3
 # Handle emergency termination (move mouse to upper left of screen)
 pyautogui.FAILSAFE = True
 
@@ -52,47 +31,32 @@ for i in range(5,0,-1):
 print("Orienting...\n")
 pyautogui.click(1756, 54)
 # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
-
 pyautogui.keyDown('up')
-time.sleep(1.3)
 pyautogui.keyUp('up')
-time.sleep(0.3)
+
 try:
     while i < 3:
-        pyautogui.keyDown('right')
-        time.sleep(1.3)
-        pyautogui.keyUp('right')
-        time.sleep(5)
-        pyautogui.click(866, 103) # Travels to oak to proper place (from bank 2nd booth)
-        
-        for i in range(15,0,-1):
+        pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time)
+        for i in range(13,0,-1):
             numStr = "Walking to oak tree... " + str(i).rjust(4)
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
             time.sleep(1)
         print("\n")
-        pyautogui.moveTo(989,488) # Hover over chop
-        for i in range(1,3,+1):
-            pyautogui.click(989,488) #Clicking on stump (doesnt move)
+        pyautogui.moveTo(956, 661) # Hover over chop
+        pyautogui.click(956, 661) # Click chop
+        for i in range(0,20,+1):
+            pyautogui.click(956, 602) #Clicking on stump (doesnt move)
             numStr = "Chopping" + str(i).rjust(4) + " times..."
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
             time.sleep(5)
         print("\n")
 
-         # Spacing in case of levelup (Might not be necessary)
-        # pyautogui.press('space')
-        # pyautogui.press('space')
-        # pyautogui.press('space')
-        time.sleep(0.5)
-        pyautogui.keyDown('left') # Reorient to bank
-        pyautogui.keyUp('left') # Reorient to bank
-        time.sleep(0.5)
+        pyautogui.moveTo(1408, 234) # Hover over bank booth button
+        pyautogui.click(1408, 234) # Click bank booth
 
-        pyautogui.moveTo(1291,153) # Hover over bank booth button
-        pyautogui.click(1291,153) # Click bank booth
-
-        for i in range(15,0,-1):
+        for i in range(13,0,-1):
             numStr = "Walking to bank... " + str(i).rjust(4)
             print(numStr, end='')
             print('\b' * len(numStr), end='', flush=True)
