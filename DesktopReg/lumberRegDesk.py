@@ -1,5 +1,8 @@
 
 
+# NOTE: Upon every left/right orientation, X-values seem to be changing by a factor of around ~10. This greatly affects the accuracy and produces undesired results.
+
+
 # Import modules
 import pyautogui, time, sys
 
@@ -40,21 +43,19 @@ for i in range(5,0,-1):
     print('\b' * len(str(i)), end='', flush=True)
     time.sleep(1)
 
-"""
+# Orients camera north
+print("Orienting...\n")
+pyautogui.click(1756, 54)
+# pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
 
-"""
+pyautogui.keyDown('up')
+pyautogui.keyUp('up')
 try:
     while i < 3:
-        # Orients camera north
-        print("Orienting...\n")
-        pyautogui.click(1756, 54)
-        # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
-        pyautogui.keyDown('up')
-        pyautogui.keyUp('up')
-        
         pyautogui.keyDown('right')
         pyautogui.keyUp('right')
-        pyautogui.click(866, 104) # Travels to oak to proper place (from bank 2nd booth)
+        time.sleep(0.5)
+        pyautogui.click(866, 103) # Travels to oak to proper place (from bank 2nd booth)
         
         for i in range(15,0,-1):
             numStr = "Walking to oak tree... " + str(i).rjust(4)
@@ -63,7 +64,7 @@ try:
             time.sleep(1)
         print("\n")
         pyautogui.moveTo(989,488) # Hover over chop
-        for i in range(1,20,+1):
+        for i in range(1,3,+1):
             pyautogui.click(989,488) #Clicking on stump (doesnt move)
             numStr = "Chopping" + str(i).rjust(4) + " times..."
             print(numStr, end='')
@@ -75,12 +76,13 @@ try:
         # pyautogui.press('space')
         # pyautogui.press('space')
         # pyautogui.press('space')
-
+        time.sleep(0.5)
         pyautogui.keyDown('left') # Reorient to bank
         pyautogui.keyUp('left') # Reorient to bank
+        time.sleep(0.5)
 
-        pyautogui.moveTo(1338,176) # Hover over bank booth button
-        pyautogui.click(1338,176) # Click bank booth
+        pyautogui.moveTo(1291,153) # Hover over bank booth button
+        pyautogui.click(1291,153) # Click bank booth
 
         for i in range(15,0,-1):
             numStr = "Walking to bank... " + str(i).rjust(4)
@@ -91,7 +93,8 @@ try:
 
         print("Depositing...")
         pyautogui.click(1792,755) # First oak log
-        pyautogui.click(1080,70) # Bank menu close button
+        time.sleep(0.2)
+        pyautogui.click(1076,69) # Bank menu close button
         print("\n")
         i+=1
 
