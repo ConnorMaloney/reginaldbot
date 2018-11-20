@@ -1,6 +1,11 @@
 
 
 # NOTE: Upon every left/right orientation, X-values seem to be changing by a factor of around ~10. This greatly affects the accuracy and produces undesired results.
+#       Does this have to do with pyautogui.pause()? Time.sleep(1.3) and pyautogui.pause(1.3) seem to both have different times?
+#       X-values appearing way off. I'd imagine this is runescape's doing. Or OSBuddy's.
+
+#       UPDATE: Nevermind, looks like it has to do because I lose some orientation between the left pan and right pan. However, resetting to north after
+#       each pan should keep me on track.
 
 
 # Import modules
@@ -32,7 +37,7 @@ import pyautogui, time, sys
 # Other bots? Progpmaker and Hoontar00
 #
 # 1.3 seconds after each command, DO NOT CHANGE, WILL AFFECT CAMERA ORIENTATION
-pyautogui.PAUSE = 1.3
+#pyautogui.PAUSE = 1.3
 # Handle emergency termination (move mouse to upper left of screen)
 pyautogui.FAILSAFE = True
 
@@ -49,12 +54,15 @@ pyautogui.click(1756, 54)
 # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
 
 pyautogui.keyDown('up')
+time.sleep(1.3)
 pyautogui.keyUp('up')
+time.sleep(0.3)
 try:
     while i < 3:
         pyautogui.keyDown('right')
+        time.sleep(1.3)
         pyautogui.keyUp('right')
-        time.sleep(0.5)
+        time.sleep(5)
         pyautogui.click(866, 103) # Travels to oak to proper place (from bank 2nd booth)
         
         for i in range(15,0,-1):
