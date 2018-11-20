@@ -65,7 +65,9 @@ try:
 
         print("Depositing...")
         pyautogui.click(1792,755) # First oak log
-        time.sleep(2) # Account for any lag between bank and server
+        time.sleep(2) # Account for any lag
+        pyautogui.click(1076,69) # Bank menu close button
+        time.sleep(2)
         print("\n")
 
 except KeyboardInterrupt:
