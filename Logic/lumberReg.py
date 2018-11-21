@@ -14,8 +14,9 @@ import pyautogui, time, sys
 # ~(600, 68) - Position of close button
 #
 # TREE - Can differ by 2 pixels
-# ~(430, 95) - Position of "Chop down oak" from bank booth, after orientation
-# ~(419, 102)
+# ~(436, 113) - Position of "Chop down oak" from bank booth, after orientation
+# ~(519, 495) - Position of stump from left side
+# ~(395, 120) - Potential position of tree (POSSIBLE)
 # 
 # INVENTORY - Can differ by 10 pixels
 # ~(645, 1015) - Position of inventory button
