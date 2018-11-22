@@ -16,7 +16,7 @@
 import pyautogui, time, sys
 
 # Set 1.3 second delay after every pyautogui call
-pyautogui.PAUSE = 1.3
+pyautogui.PAUSE = 0.5
 # Handle emergency termination (move mouse to upper left of screen)
 # pyautogui.FAILSAFE = True
 # Disabled as it's currently buggy
@@ -32,7 +32,7 @@ for i in range(5,0,-1):
 print("Orienting...\n")
 pyautogui.click(1756, 54)
 # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
-pyautogui.keyDown('up')
+pyautogui.keyDown('up', pause=1.3)
 pyautogui.keyUp('up')
 
 try:
@@ -48,7 +48,7 @@ try:
         print("\n")
         pyautogui.moveTo(956, 635) # Hover over chop
         pyautogui.click(956, 635) # Click chop
-        for i in range(0,22,+1):
+        for i in range(0,19,+1):
             pyautogui.click(956, 602) #Clicking on stump (doesnt move)
             numStr = "Chopping" + str(i).rjust(4) + " times..."
             print(numStr, end='')
@@ -57,8 +57,8 @@ try:
         print("\n")
 
         pyautogui.click(1760, 165) # Clicks sprint button (switch to walking)
-        pyautogui.moveTo(1408, 234) # Hover over bank booth button
-        pyautogui.click(1408, 234) # Click bank booth
+        pyautogui.moveTo(1422, 222) # Hover over bank booth button
+        pyautogui.click(1422, 222) # Click bank booth
 
         for i in range(13,0,-1):
             numStr = "Walking to bank... " + str(i).rjust(4)
