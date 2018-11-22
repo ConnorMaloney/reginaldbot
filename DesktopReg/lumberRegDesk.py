@@ -18,7 +18,8 @@ import pyautogui, time, sys
 # Set 1.3 second delay after every pyautogui call
 pyautogui.PAUSE = 1.3
 # Handle emergency termination (move mouse to upper left of screen)
-pyautogui.FAILSAFE = True
+# pyautogui.FAILSAFE = True
+# Disabled as it's currently buggy
 
 print('Cutting oak logs. Press Ctrl-C to quit.')
 print("Starting reginald in...\n")
@@ -37,7 +38,8 @@ pyautogui.keyUp('up')
 try:
     while True:
         pyautogui.click(1760, 165) # Clicks sprint button (switch to sprinting)
-        pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time)
+        pyautogui.moveTo(258, 984) # Hovers to wooden post
+        pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time walking, 7s sprinting)
         for i in range(7,0,-1):
             numStr = "Running to oak tree... " + str(i).rjust(4)
             print(numStr, end='')
