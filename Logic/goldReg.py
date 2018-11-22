@@ -1,6 +1,14 @@
 # Import modules
 import pyautogui, time, sys
 
+# NOTE: Current xp (71,891) lvl 46
+#       Max xp (13,034,431) lvl 99
+#       xp/Gold necklace (25)
+#       From current level, I need to craft (518,501) necklaces
+#       Assuming it takes 3 minutes to complete each run (24 necklaces).
+#       I need to do 21,604 more runs. Every 3 minutes, that is (3,888,762) secs.
+#       Approximately 45 days of gametime. If I left it running overnight (and optimized it) it'd take me 100 days.
+
 #Blackjack bot? jemar10xford
 
 # Important coordinates
