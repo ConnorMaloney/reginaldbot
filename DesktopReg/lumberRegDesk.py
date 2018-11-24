@@ -12,67 +12,104 @@
 #       No, there is DEFINITELY some variation with all of this. Thus, I'm going to have to always be looking north. I can't change the camera angle.
 
 
+# New Location 2: Draynor village bank.
+# Start position: Right in front of banker closest to door
+# Travel position: (1325,597)
+# Stump position: (1025, 535) continuously click here
+# Banker position from stump: (610, 468)
+
 # Import modules
 import pyautogui, time, sys
 
-# Set 1.3 second delay after every pyautogui call
+# Set 0.5 second delay after every pyautogui call
 pyautogui.PAUSE = 0.5
 # Handle emergency termination (move mouse to upper left of screen)
 # pyautogui.FAILSAFE = True
 # Disabled as it's currently buggy
 
-print('Cutting oak logs. Press Ctrl-C to quit.')
-print("Starting reginald in...\n")
-for i in range(5,0,-1):
-    print(i, end='')
-    print('\b' * len(str(i)), end='', flush=True)
-    time.sleep(1)
+#
+print('\nWelcome to OSRS Woodcutting bot. Reginald, at your service.\n')
 
-# Orients camera north
-print("Orienting...\n")
-pyautogui.click(1756, 54)
-# pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
-pyautogui.keyDown('up', pause=1.3)
-pyautogui.keyUp('up')
+print(r"""
+       ___                                                                
+      /___\                                                 
+     (|0 0|)                                                    
+   __/{\U/}\_ ___/vvv                                                
+  / \  {~}   / _|_P|                                                 
+  | /\  ~   /_/   ||                                                 
+  |_| (____)      ||                       
+  \_]/______\  /\_||_/\ 
+     _\_||_/_ |] _||_ [|            
+    (_,_||_,_) \/ [] \/
+""")
 
-try:
-    while True:
-        pyautogui.click(1760, 165) # Clicks sprint button (switch to sprinting)
-        pyautogui.moveTo(258, 984) # Hovers to wooden post
-        pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time walking, 7s sprinting)
-        for i in range(7,0,-1):
-            numStr = "Running to oak tree... " + str(i).rjust(4)
-            print(numStr, end='')
-            print('\b' * len(numStr), end='', flush=True)
-            time.sleep(1)
-        print("\n")
-        pyautogui.moveTo(956, 635) # Hover over chop
-        pyautogui.click(956, 635) # Click chop
-        for i in range(0,19,+1):
-            pyautogui.click(956, 602) #Clicking on stump (doesnt move)
-            numStr = "Chopping" + str(i).rjust(4) + " times..."
-            print(numStr, end='')
-            print('\b' * len(numStr), end='', flush=True)
-            time.sleep(4.2)
-        print("\n")
+print('Where am I chopping today?\n')
+print('(1)  Varrock\n')
+print('(2)  Draynor\n')
+choice = input('Please enter your choice: ')
 
-        pyautogui.click(1760, 165) # Clicks sprint button (switch to walking)
-        pyautogui.moveTo(1422, 222) # Hover over bank booth button
-        pyautogui.click(1422, 222) # Click bank booth
+# Handle Varrock
+if choice ==  '1':
+    print('Cutting oak logs at Varrock. Press Ctrl-C to quit.')
+    print("Starting reginald in...\n")
+    for i in range(5,0,-1):
+        print(i, end='')
+        print('\b' * len(str(i)), end='', flush=True)
+        time.sleep(1)
 
-        for i in range(13,0,-1):
-            numStr = "Walking to bank... " + str(i).rjust(4)
-            print(numStr, end='')
-            print('\b' * len(numStr), end='', flush=True)
-            time.sleep(1)
-        print("\n")
+    # Orients camera north
+    print("Orienting...\n")
+    pyautogui.click(1756, 54)
+    # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
+    pyautogui.keyDown('up', pause=1.3)
+    pyautogui.keyUp('up')
 
-        print("Depositing...")
-        pyautogui.click(1792,755) # First oak log
-        time.sleep(2) # Account for any lag
-        pyautogui.click(1076,69) # Bank menu close button
-        time.sleep(2)
-        print("\n")
+    try:
+        while True:
+            pyautogui.click(1760, 165) # Clicks sprint button (switch to sprinting)
+            pyautogui.moveTo(258, 984) # Hovers to wooden post
+            pyautogui.click(258, 984) # Travels to second wooden post near oak tree (13s travel time walking, 7s sprinting)
+            for i in range(7,0,-1):
+                numStr = "Running to oak tree... " + str(i).rjust(4)
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(1)
+            print("\n")
+            pyautogui.moveTo(956, 635) # Hover over chop
+            pyautogui.click(956, 635) # Click chop
+            for i in range(0,19,+1):
+                pyautogui.click(956, 602) #Clicking on stump (doesnt move)
+                numStr = "Chopping" + str(i).rjust(4) + " times..."
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(4.2)
+            print("\n")
 
-except KeyboardInterrupt:
-    print('\nAbort.')
+            pyautogui.click(1760, 165) # Clicks sprint button (switch to walking)
+            pyautogui.moveTo(1422, 222) # Hover over bank booth button
+            pyautogui.click(1422, 222) # Click bank booth
+
+            for i in range(13,0,-1):
+                numStr = "Walking to bank... " + str(i).rjust(4)
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(1)
+            print("\n")
+
+            print("Depositing...")
+            pyautogui.click(1792,755) # First oak log
+            time.sleep(2) # Account for any lag
+            pyautogui.click(1076,69) # Bank menu close button
+            time.sleep(2)
+            print("\n")
+
+    except KeyboardInterrupt:
+        print('\nAbort.')
+
+# Handle Draynor
+elif choice == '2':
+    print('memes')
+
+# Handle quit
+else:
+    print('Farewell.')
