@@ -112,7 +112,63 @@ if choice ==  '1':
 
 # Handle Draynor
 elif choice == '2':
-    print('Draynor it is! Lets get to choppin')
+    print('Draynor it is! Lets get to choppin. Press Ctrl-C to quit.')
+    print("Starting reginald in...\n")
+    for i in range(5,0,-1):
+        print(i, end='')
+        print('\b' * len(str(i)), end='', flush=True)
+        time.sleep(1)
+
+    # Orients camera north
+    print("Orienting...\n")
+    pyautogui.click(797, 56)
+    # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
+    pyautogui.keyDown('up', pause=1.3)
+    pyautogui.keyUp('up')
+    pyautogui.click(801, 171) # Clicks sprint button
+
+
+    try:
+        while True:
+            pyautogui.moveTo(799, 595) # Moves to oak tree and hovers over
+            pyautogui.click(799, 595) # Travels to location/cuts oak
+
+            for i in range(5,0,-1):
+                numStr = "Running to oak tree... " + str(i).rjust(4)
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(1)
+            print("\n")
+
+            pyautogui.moveTo(547,535) # Hovers over tree to chop first time
+            for i in range(0,17,+1):
+                pyautogui.click(547, 535) #Clicking on stump (doesnt move)
+                numStr = "Chopping" + str(i).rjust(4) + " times..."
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(4.2)
+            print("\n")
+
+            # pyautogui.click(1760, 165) # Clicks sprint button (switch to walking)
+            pyautogui.moveTo(134, 467) # Hover over bank booth button
+            pyautogui.click(134, 467) # Click bank booth
+
+            for i in range(5,0,-1):
+                numStr = "Running to bank... " + str(i).rjust(4)
+                print(numStr, end='')
+                print('\b' * len(numStr), end='', flush=True)
+                time.sleep(1)
+            print("\n")
+
+            print("Depositing...")
+            pyautogui.click(833, 753) # First oak log
+            time.sleep(2) # Account for any lag
+            pyautogui.click(599, 70) # Bank menu close button
+            time.sleep(2)
+            print("\n")
+
+    except KeyboardInterrupt:
+        print('\nAbort.')
 
 # Handle quit
 else:
