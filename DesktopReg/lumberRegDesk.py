@@ -46,10 +46,13 @@ print(r"""
 print('Where am I chopping today?\n')
 print('(1)  Varrock\n')
 print('(2)  Draynor\n')
+print('(0)  Nowhere\n')
 choice = input('Please enter your choice: ')
 
 # Handle Varrock
 if choice ==  '1':
+    print('WORKIN ON IT')
+    """
     print('Cutting oak logs at Varrock. Press Ctrl-C to quit.')
     print("Starting reginald in...\n")
     for i in range(5,0,-1):
@@ -105,10 +108,11 @@ if choice ==  '1':
 
     except KeyboardInterrupt:
         print('\nAbort.')
+        """
 
 # Handle Draynor
 elif choice == '2':
-     print('Draynor it is! Lets get to choppin. Press Ctrl-C to quit.')
+    print('Draynor it is! Lets get to choppin. Press Ctrl-C to quit.')
     print("Starting reginald in...\n")
     for i in range(5,0,-1):
         print(i, end='')
@@ -168,4 +172,4 @@ elif choice == '2':
 
 # Handle quit
 else:
-    print('Farewell.')
+    print('Nowhere eh? Such a pity. Farewell then.')
