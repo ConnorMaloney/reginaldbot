@@ -121,17 +121,17 @@ elif choice == '2':
 
     # Orients camera north
     print("Orienting...\n")
-    pyautogui.click(797, 56)
+    pyautogui.click(1757, 55) # Clicks compass
     # pyautogui.scroll(-100) # Ensure that game is scrolled out as far as possible
     pyautogui.keyDown('up', pause=1.3)
     pyautogui.keyUp('up')
-    pyautogui.click(801, 171) # Clicks sprint button
+    pyautogui.click(1759, 167) # Clicks sprint button
 
 
     try:
         while True:
-            pyautogui.moveTo(799, 595) # Moves to oak tree and hovers over
-            pyautogui.click(799, 595) # Travels to location/cuts oak
+            pyautogui.moveTo(1286, 608) # Moves to oak tree and hovers over
+            pyautogui.click(1286, 608) # Travels to location/cuts oak
 
             for i in range(5,0,-1):
                 numStr = "Running to oak tree... " + str(i).rjust(4)
@@ -140,19 +140,17 @@ elif choice == '2':
                 time.sleep(1)
             print("\n")
 
-            pyautogui.moveTo(547,535) # Hovers over tree to chop first time
+            pyautogui.moveTo(1026 ,535) # Hovers over tree to chop first time
             for i in range(0,17,+1):
-                pyautogui.click(547, 535) #Clicking on stump (doesnt move)
+                pyautogui.click(1026, 535) #Clicking on stump (doesnt move)
                 numStr = "Chopping" + str(i).rjust(4) + " times..."
                 print(numStr, end='')
                 print('\b' * len(numStr), end='', flush=True)
                 time.sleep(4.2)
             print("\n")
 
-            # pyautogui.click(1760, 165) # Clicks sprint button (switch to walking)
-            pyautogui.moveTo(134, 467) # Hover over bank booth button
-            pyautogui.click(134, 467) # Click bank booth
-
+            pyautogui.moveTo(611, 470) # Hover over bank booth button
+            pyautogui.click(611, 470) # Click bank booth
             for i in range(5,0,-1):
                 numStr = "Running to bank... " + str(i).rjust(4)
                 print(numStr, end='')
@@ -161,10 +159,10 @@ elif choice == '2':
             print("\n")
 
             print("Depositing...")
-            pyautogui.click(833, 753) # First oak log
-            time.sleep(2) # Account for any lag
-            pyautogui.click(599, 70) # Bank menu close button
-            time.sleep(2)
+            pyautogui.click(1791, 758) # First oak log
+            time.sleep(1.5) # Account for any lag
+            pyautogui.click(1079, 69) # Bank menu close button
+            time.sleep(1.5)
             print("\n")
 
     except KeyboardInterrupt:
